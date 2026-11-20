@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Góc Học Tập Số - Lớp 12A 2k9 | THPT Gia Lộc II</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,600;0,700;1,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-deep: #040914;
+            --cyan-glow: #00e5ff;
+            --orange-glow: #ff8a00;
+            --rose-glow: #ff3b6b;
+            --purple-glow: #a855f7;
+            --emerald-glow: #10b981;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: #e2e8f0;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        .font-tech { font-family: 'Chakra Petch', sans-serif; }
+        .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+
+        .blueprint-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background-color: #040914;
+            background-image:
+                radial-gradient(circle at 18% 22%, rgba(0, 229, 255, 0.11) 0%, transparent 42%),
+                radial-gradient(circle at 82% 28%, rgba(255, 138, 0, 0.08) 0%, transparent 42%),
+                radial-gradient(circle at 50% 85%, rgba(168, 85, 247, 0.09) 0%, transparent 48%),
+                linear-gradient(to right, rgba(0, 229, 255, 0.045) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 229, 255, 0.045) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 44px 44px, 44px 44px;
+            animation: gridDrift 28s linear infinite;
+        }
+
+        @keyframes gridDrift {
+            0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
+            100% { background-position: 0 0, 0 0, 0 0, 44px 44px, 44px 44px; }
+        }
+
+        .floating-science {
+            position: fixed;
+            z-index: -1;
+            pointer-events: none;
+            color: rgba(56, 189, 248, 0.14);
+            user-select: none;
+            animation: floatScience 9s ease-in-out infinite;
+        }
+
+        @keyframes floatScience {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.13; }
+            50% { transform: translateY(-14px) rotate(2.5deg); opacity: 0.24; }
+        }
+
+        .hero-title-cyan {
+            background: linear-gradient(110deg, #00e5ff 15%, #ffffff 48%, #38bdf8 80%);
+            background-size: 220% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 18px rgba(0, 229, 255, 0.45));
+            animation: textShimmer 5.5s linear infinite;
+        }
+
+        .hero-title-orange {
+            background: linear-gradient(110deg, #ff7b00 15%, #fde047 50%, #ff9e00 85%);
+            background-size: 220% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 18px rgba(255, 138, 0, 0.45));
+            animation: textShimmer 5.5s linear infinite 0.6s;
+        }
+
+        @keyframes textShimmer {
+            0% { background-position: 200% center; }
+            100% { background-position: -200% center; }
+        }
+
+        .cyber-card-wrapper {
+            position: relative;
+            padding: 1.5px;
+            clip-path: polygon(
+                18px 0%, calc(100% - 18px) 0%,
+                100% 18px, 100% calc(100% - 18px),
+                calc(100% - 18px) 100%, 18px 100%,
+                0% calc(100% - 18px), 0% 18px
+            );
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+            opacity: 0;
+            animation: cardFadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .cyber-card-wrapper:nth-child(1) { animation-delay: 0.08s; }
+        .cyber-card-wrapper:nth-child(2) { animation-delay: 0.16s; }
+        .cyber-card-wrapper:nth-child(3) { animation-delay: 0.24s; }
+        .cyber-card-wrapper:nth-child(4) { animation-delay: 0.32s; }
+        .cyber-card-wrapper:nth-child(5) { animation-delay: 0.40s; }
+
+        @keyframes cardFadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .cyber-card-wrapper:hover { transform: translateY(-6px); }
+
+        .theme-cyan { background: linear-gradient(135deg, rgba(0, 229, 255, 0.7), rgba(14, 116, 144, 0.25) 50%, rgba(0, 229, 255, 0.7)); }
+        .theme-cyan:hover { filter: drop-shadow(0 10px 22px rgba(0, 229, 255, 0.28)); }
+
+        .theme-orange { background: linear-gradient(135deg, rgba(255, 138, 0, 0.75), rgba(154, 52, 18, 0.25) 50%, rgba(255, 138, 0, 0.75)); }
+        .theme-orange:hover { filter: drop-shadow(0 10px 22px rgba(255, 138, 0, 0.28)); }
+
+        .theme-rose { background: linear-gradient(135deg, rgba(255, 59, 107, 0.75), rgba(159, 18, 57, 0.25) 50%, rgba(255, 59, 107, 0.75)); }
+        .theme-rose:hover { filter: drop-shadow(0 10px 22px rgba(255, 59, 107, 0.28)); }
+
+        .theme-purple { background: linear-gradient(135deg, rgba(168, 85, 247, 0.75), rgba(88, 28, 135, 0.25) 50%, rgba(168, 85, 247, 0.75)); }
+        .theme-purple:hover { filter: drop-shadow(0 10px 22px rgba(168, 85, 247, 0.28)); }
+
+        .theme-emerald { background: linear-gradient(135deg, rgba(16, 185, 129, 0.75), rgba(6, 78, 59, 0.25) 50%, rgba(16, 185, 129, 0.75)); }
+        .theme-emerald:hover { filter: drop-shadow(0 10px 22px rgba(16, 185, 129, 0.28)); }
+
+        .cyber-card {
+            position: relative;
+            background: linear-gradient(165deg, rgba(13, 27, 52, 0.92), rgba(7, 14, 29, 0.96));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            clip-path: polygon(
+                17px 0%, calc(100% - 17px) 0%,
+                100% 17px, 100% calc(100% - 17px),
+                calc(100% - 17px) 100%, 17px 100%,
+                0% calc(100% - 17px), 0% 17px
+            );
+            overflow: hidden;
+        }
+
+        .cyber-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 75%;
+            height: 100%;
+            background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.08) 50%, transparent 80%);
+            transform: skewX(-20deg);
+            transition: left 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+            pointer-events: none;
+        }
+
+        .cyber-card-wrapper:hover .cyber-card::after { left: 150%; }
+
+        .ticker-viewport { position: relative; height: 76px; overflow: hidden; }
+        .ticker-track { display: flex; flex-direction: column; transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1); }
+        .ticker-slide { height: 76px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; }
+
+        @keyframes progress2s {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        .ticker-progress-bar {
+            height: 2px;
+            background: linear-gradient(90deg, #00e5ff, #ff8a00);
+            animation: progress2s 2s linear infinite;
+        }
+
+        .ticker-paused .ticker-progress-bar { animation-play-state: paused; }
+
+        .teacher-card {
+            background: rgba(11, 22, 44, 0.68);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(56, 189, 248, 0.18);
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 229, 255, 0.5);
+            box-shadow: 0 8px 24px rgba(0, 229, 255, 0.14);
+        }
+
+        .teacher-card:hover .subject-badge-icon { transform: scale(1.12) rotate(8deg); }
+        .subject-badge-icon { transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+        .empty-gallery-zone {
+            border: 1.5px dashed rgba(0, 229, 255, 0.35);
+            background: radial-gradient(circle at center, rgba(0, 229, 255, 0.05) 0%, rgba(11, 22, 44, 0.5) 100%);
+            transition: all 0.3s ease;
+        }
+
+        .empty-gallery-zone:hover {
+            border-color: rgba(0, 229, 255, 0.75);
+            box-shadow: 0 0 24px rgba(0, 229, 255, 0.12);
+        }
+
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #040914; }
+        ::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00e5ff; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-950">
+
+    <div class="blueprint-bg"></div>
+
+    <!-- Họa tiết Toán - Lý - Hóa -->
+    <div class="floating-science top-14 left-6 hidden sm:block" style="animation-delay: 0s;">
+        <svg width="110" height="90" viewBox="0 0 110 90" fill="none" stroke="currentColor" stroke-width="1.5">
+            <line x1="10" y1="75" x2="100" y2="75" />
+            <line x1="25" y1="10" x2="25" y2="85" />
+            <path d="M 15 68 Q 50 15, 92 22" stroke-width="2" />
+            <text x="68" y="18" fill="currentColor" font-size="13" font-family="JetBrains Mono">∫f(x)dx</text>
+        </svg>
+    </div>
+
+    <div class="floating-science top-24 right-8 hidden md:block" style="animation-delay: 2.2s;">
+        <svg width="120" height="100" viewBox="0 0 120 100" fill="none" stroke="currentColor" stroke-width="1.4">
+            <ellipse cx="60" cy="45" rx="42" ry="15" transform="rotate(28 60 45)" />
+            <ellipse cx="60" cy="45" rx="42" ry="15" transform="rotate(-28 60 45)" />
+            <ellipse cx="60" cy="45" rx="42" ry="15" transform="rotate(90 60 45)" />
+            <circle cx="60" cy="45" r="4.5" fill="currentColor" />
+            <text x="32" y="94" fill="currentColor" font-size="13" font-family="JetBrains Mono">E = mc²</text>
+        </svg>
+    </div>
+
+    <div class="floating-science bottom-28 left-8 hidden md:block" style="animation-delay: 4s;">
+        <svg width="115" height="95" viewBox="0 0 115 95" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="35,15 55,27 55,50 35,62 15,50 15,27" />
+            <circle cx="35" cy="38.5" r="11" />
+            <path d="M 78 20 L 78 36 L 64 64 Q 62 68 67 68 L 97 68 Q 102 68 100 64 L 86 36 L 86 20 Z" />
+            <line x1="70" y1="54" x2="94" y2="54" />
+        </svg>
+    </div>
+
+    <div class="floating-science bottom-32 right-10 hidden sm:block" style="animation-delay: 1.5s;">
+        <svg width="110" height="75" viewBox="0 0 110 75" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M 5 38 Q 20 8, 35 38 T 65 38 T 95 38" stroke-width="2" />
+            <text x="20" y="65" fill="currentColor" font-size="12" font-family="JetBrains Mono">λ = v / f</text>
+        </svg>
+    </div>
+
+    <!-- HEADER ĐIỀU HƯỚNG WEB 1 & WEB 2 ADMIN -->
+    <header class="sticky top-0 z-40 border-b border-cyan-500/20 bg-slate-950/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('home')">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-400/50 flex items-center justify-center shadow-[0_0_15px_rgba(0,229,255,0.25)]">
+                    <i class="fa-solid fa-atom text-cyan-400 text-lg animate-[spin_14s_linear_infinite]"></i>
+                </div>
+                <div>
+                    <div class="font-tech font-bold text-base sm:text-lg tracking-wider text-white leading-none">
+                        12A - 2K9 <span class="text-cyan-400">PORTAL</span>
+                    </div>
+                    <div class="text-[11px] font-mono-code text-slate-400 tracking-wide mt-0.5">
+                        TRƯỜNG THPT GIA LỘC II
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button id="nav-btn-home" onclick="switchView('home')" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-2 bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_12px_rgba(0,229,255,0.2)]">
+                    <i class="fa-solid fa-display"></i>
+                    <span>Trang Chủ</span>
+                </button>
+                <button id="nav-btn-admin" onclick="openAdminAccess()" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-2 bg-slate-900/90 text-slate-300 border border-slate-700 hover:border-orange-400/60 hover:text-orange-300">
+                    <i class="fa-solid fa-shield-halved text-orange-400"></i>
+                    <span>Quản Trị</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- =========================================================
+         WEB 1: GIAO DIỆN NGƯỜI DÙNG
+         ========================================================= -->
+    <main id="view-home" class="flex-1 max-w-6xl w-full mx-auto px-4 pt-8 pb-14">
+
+        <section class="text-center mb-8">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/70 border border-cyan-400/30 text-cyan-300 text-xs font-mono-code tracking-wider mb-3">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                <span>HỆ THỐNG THÔNG TIN & HỌC TẬP SỐ • NIÊN KHÓA 2K9</span>
+            </div>
+
+            <h1 class="font-tech text-4xl sm:text-6xl font-bold tracking-wider uppercase leading-tight mb-2">
+                <span class="hero-title-cyan">GÓC HỌC TẬP</span>
+                <span class="hero-title-orange ml-1 sm:ml-2">SỐ</span>
+            </h1>
+
+            <div class="flex items-center justify-center gap-3 text-sm sm:text-base font-tech font-semibold tracking-widest text-slate-200 uppercase">
+                <span class="h-[1px] w-8 sm:w-16 bg-gradient-to-r from-transparent to-cyan-400"></span>
+                <span>LỚP 12A - 2K9 • THPT GIA LỘC II</span>
+                <span class="h-[1px] w-8 sm:w-16 bg-gradient-to-l from-transparent to-orange-400"></span>
+            </div>
+        </section>
+
+        <!-- BẢNG TIN TRƯỢT DỌC 2 GIÂY -->
+        <section class="max-w-4xl mx-auto mb-10">
+            <div id="ticker-container" onmouseenter="pauseTicker()" onmouseleave="resumeTicker()" class="rounded-2xl bg-slate-900/80 border border-cyan-500/35 backdrop-blur-md shadow-[0_0_25px_rgba(0,229,255,0.12)] overflow-hidden">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between px-4 py-2.5 bg-slate-950/70 border-b border-slate-800/90 gap-2">
+                    <div class="flex items-center gap-2.5">
+                        <span class="px-2.5 py-0.5 rounded-md bg-rose-500/20 border border-rose-500/40 text-rose-400 font-tech text-xs font-bold tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-bullhorn"></i> BẢNG TIN LỚP 12A
+                        </span>
+                        <span id="ticker-counter" class="text-xs font-mono-code text-slate-400">1 / 1</span>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <button onclick="prevSlide()" title="Tin trước" class="w-7 h-7 rounded-lg bg-slate-800/80 hover:bg-cyan-500/20 text-slate-300 hover:text-cyan-300 border border-slate-700/80 flex items-center justify-center text-xs transition">
+                            <i class="fa-solid fa-chevron-up"></i>
+                        </button>
+                        <button onclick="nextSlide()" title="Tin tiếp theo" class="w-7 h-7 rounded-lg bg-slate-800/80 hover:bg-cyan-500/20 text-slate-300 hover:text-cyan-300 border border-slate-700/80 flex items-center justify-center text-xs transition">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <button onclick="openQuickPostModal()" class="px-3 py-1 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition shadow-[0_0_12px_rgba(0,229,255,0.3)]">
+                            <i class="fa-solid fa-plus"></i> Đăng thông báo
+                        </button>
+                    </div>
+                </div>
+
+                <div class="px-4 sm:px-5">
+                    <div class="ticker-viewport">
+                        <div id="ticker-track" class="ticker-track"></div>
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-800/60 h-[2px]">
+                    <div id="ticker-progress" class="ticker-progress-bar"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5 KHUNG CHỨC NĂNG -->
+        <section class="mb-14">
+            <div id="main-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
+
+                <div onclick="openCategoryModal('documents')" class="lg:col-span-2 cyber-card-wrapper theme-cyan cursor-pointer group">
+                    <div class="cyber-card h-full p-6 sm:p-7 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-start justify-between mb-5">
+                                <div class="w-16 h-16 rounded-2xl bg-cyan-950/80 border border-cyan-400/40 flex items-center justify-center relative group-hover:scale-105 transition duration-300 shadow-[0_0_15px_rgba(0,229,255,0.2)]">
+                                    <i class="fa-solid fa-book-open-reader text-3xl text-cyan-300"></i>
+                                    <span class="absolute -top-2 -right-2 px-1.5 py-0.5 rounded bg-cyan-400 text-slate-950 font-mono-code text-[10px] font-bold">∫dx</span>
+                                </div>
+                                <span class="font-mono-code text-xs text-cyan-400/80 bg-cyan-950/60 border border-cyan-500/25 px-2.5 py-1 rounded-lg">MODULE 01</span>
+                            </div>
+
+                            <h2 class="font-tech text-2xl font-bold tracking-wide text-white uppercase mb-2 group-hover:text-cyan-300 transition">
+                                THƯ VIỆN TÀI LIỆU
+                            </h2>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                                Tài liệu học tập, giáo trình, chuyên đề ôn thi Toán - Lý - Hóa trọng tâm lớp 12.
+                            </p>
+                        </div>
+
+                        <div class="pt-3.5 border-t border-cyan-500/20 flex items-center justify-between text-xs font-semibold text-cyan-300">
+                            <span id="count-documents" class="font-mono-code">0 tài liệu</span>
+                            <span class="flex items-center gap-1.5 group-hover:translate-x-1 transition">TRUY CẬP <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="card-videos-wrapper" onclick="openCategoryModal('videos')" class="lg:col-span-2 cyber-card-wrapper theme-orange cursor-pointer group">
+                    <div class="cyber-card h-full p-6 sm:p-7 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-start justify-between mb-5">
+                                <div class="w-16 h-16 rounded-2xl bg-orange-950/80 border border-orange-400/40 flex items-center justify-center relative group-hover:scale-105 transition duration-300 shadow-[0_0_15px_rgba(255,138,0,0.2)]">
+                                    <i class="fa-solid fa-video text-3xl text-orange-400"></i>
+                                    <span class="absolute -top-2 -right-2 px-1.5 py-0.5 rounded bg-orange-400 text-slate-950 font-mono-code text-[10px] font-bold">YT</span>
+                                </div>
+                                <span class="font-mono-code text-xs text-orange-400/80 bg-orange-950/60 border border-orange-500/25 px-2.5 py-1 rounded-lg">MODULE 02</span>
+                            </div>
+
+                            <h2 class="font-tech text-2xl font-bold tracking-wide text-white uppercase mb-2 group-hover:text-orange-300 transition">
+                                VIDEO BÀI GIẢNG
+                            </h2>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                                Bài giảng trực tuyến trích xuất từ YouTube, hướng dẫn chi tiết và chữa đề minh họa.
+                            </p>
+                        </div>
+
+                        <div class="pt-3.5 border-t border-orange-500/20 flex items-center justify-between text-xs font-semibold text-orange-300">
+                            <span id="count-videos" class="font-mono-code">0 video</span>
+                            <span class="flex items-center gap-1.5 group-hover:translate-x-1 transition">XEM / ĐĂNG VIDEO <i class="fa-solid fa-play"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="openCategoryModal('quizzes')" class="lg:col-span-2 cyber-card-wrapper theme-rose cursor-pointer group">
+                    <div class="cyber-card h-full p-6 sm:p-7 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-start justify-between mb-5">
+                                <div class="w-16 h-16 rounded-2xl bg-rose-950/80 border border-rose-400/40 flex items-center justify-center relative group-hover:scale-105 transition duration-300 shadow-[0_0_15px_rgba(255,59,107,0.2)]">
+                                    <i class="fa-solid fa-brain text-3xl text-rose-400"></i>
+                                    <span class="absolute -bottom-1.5 -right-1.5 w-6 h-6 rounded-full bg-rose-500 text-slate-950 flex items-center justify-center text-[11px] font-bold">
+                                        <i class="fa-solid fa-stopwatch"></i>
+                                    </span>
+                                </div>
+                                <span class="font-mono-code text-xs text-rose-400/80 bg-rose-950/60 border border-rose-500/25 px-2.5 py-1 rounded-lg">MODULE 03</span>
+                            </div>
+
+                            <h2 class="font-tech text-2xl font-bold tracking-wide text-white uppercase mb-2 group-hover:text-rose-300 transition">
+                                QUIZ KIỂM TRA KIẾN THỨC
+                            </h2>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                                Câu hỏi trắc nghiệm nhanh, luyện phản xạ công thức và đề kiểm tra định kỳ các môn.
+                            </p>
+                        </div>
+
+                        <div class="pt-3.5 border-t border-rose-500/20 flex items-center justify-between text-xs font-semibold text-rose-300">
+                            <span id="count-quizzes" class="font-mono-code">0 bộ đề</span>
+                            <span class="flex items-center gap-1.5 group-hover:translate-x-1 transition">THỬ THÁCH <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="openCategoryModal('assignments')" class="lg:col-span-2 lg:col-start-2 cyber-card-wrapper theme-purple cursor-pointer group">
+                    <div class="cyber-card h-full p-6 sm:p-7 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-start justify-between mb-5">
+                                <div class="w-16 h-16 rounded-2xl bg-purple-950/80 border border-purple-400/40 flex items-center justify-center relative group-hover:scale-105 transition duration-300 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                                    <i class="fa-solid fa-laptop-code text-3xl text-purple-400"></i>
+                                    <span class="absolute -top-2 -right-2 px-1.5 py-0.5 rounded bg-purple-400 text-slate-950 font-mono-code text-[10px] font-bold">LAB</span>
+                                </div>
+                                <span class="font-mono-code text-xs text-purple-400/80 bg-purple-950/60 border border-purple-500/25 px-2.5 py-1 rounded-lg">MODULE 04</span>
+                            </div>
+
+                            <h2 class="font-tech text-2xl font-bold tracking-wide text-white uppercase mb-2 group-hover:text-purple-300 transition">
+                                BÀI TẬP TRỰC TUYẾN
+                            </h2>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                                Danh sách phiếu bài tập về nhà, hạn nộp bài và hướng dẫn chấm điểm chi tiết.
+                            </p>
+                        </div>
+
+                        <div class="pt-3.5 border-t border-purple-500/20 flex items-center justify-between text-xs font-semibold text-purple-300">
+                            <span id="count-assignments" class="font-mono-code">0 bài tập</span>
+                            <span class="flex items-center gap-1.5 group-hover:translate-x-1 transition">LÀM BÀI <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="openCategoryModal('announcements')" class="lg:col-span-2 lg:col-start-4 cyber-card-wrapper theme-emerald cursor-pointer group">
+                    <div class="cyber-card h-full p-6 sm:p-7 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-start justify-between mb-5">
+                                <div class="w-16 h-16 rounded-2xl bg-emerald-950/80 border border-emerald-400/40 flex items-center justify-center relative group-hover:scale-105 transition duration-300 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                                    <i class="fa-solid fa-tower-broadcast text-3xl text-emerald-400"></i>
+                                    <span id="badge-announcements-dot" class="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 rounded-full bg-rose-500 border-2 border-slate-950"></span>
+                                </div>
+                                <span class="font-mono-code text-xs text-emerald-400/80 bg-emerald-950/60 border border-emerald-500/25 px-2.5 py-1 rounded-lg">MODULE 05</span>
+                            </div>
+
+                            <h2 class="font-tech text-2xl font-bold tracking-wide text-white uppercase mb-2 group-hover:text-emerald-300 transition">
+                                THÔNG BÁO CỦA LỚP
+                            </h2>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                                Lịch thi thử, lịch học tăng cường, kế hoạch hoạt động và các thông báo quan trọng từ GVCN.
+                            </p>
+                        </div>
+
+                        <div class="pt-3.5 border-t border-emerald-500/20 flex items-center justify-between text-xs font-semibold text-emerald-300">
+                            <span id="count-announcements" class="font-mono-code">0 thông báo</span>
+                            <span class="flex items-center gap-1.5 group-hover:translate-x-1 transition">XEM TẤT CẢ <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BAN GIẢNG DẠY -->
+        <section class="max-w-4xl mx-auto mb-14">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-400/40 flex items-center justify-center text-cyan-400">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                </div>
+                <div>
+                    <h3 class="font-tech text-xl font-bold uppercase tracking-wider text-white">
+                        BAN GIẢNG DẠY & CHỦ NHIỆM LỚP 12A
+                    </h3>
+                    <p class="text-xs text-slate-400">Tổ hợp Khoa học Tự nhiên: Toán học • Vật Lý • Hóa Học</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="teacher-card rounded-2xl p-5 relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-md bg-cyan-500/15 border border-cyan-400/35 text-cyan-300 font-mono-code text-[11px] font-bold">
+                            GVCN • MÔN TOÁN
+                        </span>
+                        <div class="subject-badge-icon w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-400/30 flex items-center justify-center text-cyan-300">
+                            <i class="fa-solid fa-square-root-variable text-lg"></i>
+                        </div>
+                    </div>
+                    <h4 class="font-tech text-lg font-bold text-white tracking-wide">Cô Nguyễn Thị Anh</h4>
+                    <p class="text-xs text-slate-400 mt-1">Giáo viên Chủ nhiệm Lớp 12A & Giảng dạy bộ môn Toán học</p>
+                </div>
+
+                <div class="teacher-card rounded-2xl p-5 relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-md bg-amber-500/15 border border-amber-400/35 text-amber-300 font-mono-code text-[11px] font-bold">
+                            MÔN VẬT LÝ
+                        </span>
+                        <div class="subject-badge-icon w-10 h-10 rounded-xl bg-amber-950 border border-amber-400/30 flex items-center justify-center text-amber-300">
+                            <i class="fa-solid fa-atom text-lg"></i>
+                        </div>
+                    </div>
+                    <h4 class="font-tech text-lg font-bold text-white tracking-wide">Cô Nguyễn Thị Thuý</h4>
+                    <p class="text-xs text-slate-400 mt-1">Giáo viên giảng dạy bộ môn Vật Lý — Lớp 12A</p>
+                </div>
+
+                <div class="teacher-card rounded-2xl p-5 relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 border border-emerald-400/35 text-emerald-300 font-mono-code text-[11px] font-bold">
+                            MÔN HÓA HỌC
+                        </span>
+                        <div class="subject-badge-icon w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-400/30 flex items-center justify-center text-emerald-300">
+                            <i class="fa-solid fa-flask-vial text-lg"></i>
+                        </div>
+                    </div>
+                    <h4 class="font-tech text-lg font-bold text-white tracking-wide">Cô Viết Thị Hợp</h4>
+                    <p class="text-xs text-slate-400 mt-1">Giáo viên giảng dạy bộ môn Hóa Học — Lớp 12A</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KHU VỰC HÌNH ẢNH CUỐI TRANG -->
+        <section class="max-w-4xl mx-auto">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-orange-500/15 border border-orange-400/40 flex items-center justify-center text-orange-400">
+                        <i class="fa-solid fa-images"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-tech text-xl font-bold uppercase tracking-wider text-white">
+                            TƯ LIỆU HÌNH ẢNH LỚP 12A
+                        </h3>
+                        <p class="text-xs text-slate-400">Lưu giữ khoảnh khắc học tập, bảng tin và hoạt động của tập thể 12A - 2k9</p>
+                    </div>
+                </div>
+
+                <button onclick="openImageUploadModal()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-xs sm:text-sm flex items-center gap-2 transition shadow-[0_0_16px_rgba(0,229,255,0.28)]">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <span>+ Đăng hình ảnh</span>
+                </button>
+            </div>
+
+            <div id="gallery-container"></div>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+         WEB 2: CỔNG QUẢN TRỊ ADMIN
+         ========================================================= -->
+    <main id="view-admin" class="hidden flex-1 max-w-6xl w-full mx-auto px-4 pt-8 pb-16">
+
+        <div class="rounded-2xl bg-slate-900/90 border border-orange-500/35 p-5 sm:p-6 mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-[0_0_30px_rgba(255,138,0,0.1)]">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-orange-500/15 border border-orange-400/50 flex items-center justify-center text-orange-400 text-2xl">
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="font-tech text-2xl font-bold text-white uppercase tracking-wider">
+                            CỔNG QUẢN TRỊ HỆ THỐNG 12A
+                        </h1>
+                        <span class="px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-mono-code text-[10px]">
+                            ADMIN ACTIVE
+                        </span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-0.5">
+                        Thêm, sửa, xóa thông báo, tài liệu, quiz, bài tập, video YouTube và hình ảnh.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2.5">
+                <button onclick="switchView('home')" class="px-4 py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-400/40 text-xs font-semibold flex items-center gap-2 transition">
+                    <i class="fa-solid fa-eye"></i> Xem Trang Chủ
+                </button>
+                <button onclick="logoutAdmin()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-rose-500/20 text-slate-300 hover:text-rose-300 border border-slate-700 text-xs font-semibold flex items-center gap-2 transition">
+                    <i class="fa-solid fa-right-from-bracket"></i> Khóa Admin
+                </button>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-6 border-b border-slate-800 pb-4">
+            <button onclick="switchAdminTab('announcements')" id="admin-tab-announcements" class="admin-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/50 transition">
+                <i class="fa-solid fa-bullhorn mr-1.5"></i> Bảng Tin & Thông Báo
+            </button>
+            <button onclick="switchAdminTab('documents')" id="admin-tab-documents" class="admin-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition">
+                <i class="fa-solid fa-book mr-1.5"></i> Thư Viện Tài Liệu
+            </button>
+            <button onclick="switchAdminTab('quizzes')" id="admin-tab-quizzes" class="admin-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition">
+                <i class="fa-solid fa-brain mr-1.5"></i> Quiz Kiểm Tra
+            </button>
+            <button onclick="switchAdminTab('assignments')" id="admin-tab-assignments" class="admin-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition">
+                <i class="fa-solid fa-laptop-code mr-1.5"></i> Bài Tập Trực Tuyến
+            </button>
+            <button onclick="switchAdminTab('videos')" id="admin-tab-videos" class="admin-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition">
+                <i class="fa-solid fa-video mr-1.5"></i> Video YouTube
+            </button>
+            <button onclick="switchAdminTab('images')" id="admin-tab-images" class="admin-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition">
+                <i class="fa-solid fa-images mr-1.5"></i> Hình Ảnh Đáy Trang
+            </button>
+        </div>
+
+        <div id="admin-workspace" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-5">
+                <div id="admin-form-container" class="rounded-2xl bg-slate-900/90 border border-slate-700/80 p-5 sticky top-20"></div>
+            </div>
+
+            <div class="lg:col-span-7">
+                <div class="rounded-2xl bg-slate-900/70 border border-slate-800 p-5">
+                    <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
+                        <h3 id="admin-list-title" class="font-tech text-lg font-bold text-white uppercase">Danh sách mục</h3>
+                        <span id="admin-list-count" class="font-mono-code text-xs text-cyan-400">0 mục</span>
+                    </div>
+                    <div id="admin-items-list" class="space-y-3 max-h-[600px] overflow-y-auto pr-1"></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="border-t border-slate-800/80 bg-slate-950/90 py-5 text-center text-xs text-slate-400">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <div class="font-tech tracking-wider text-slate-300">LỚP 12A - 2K9 • TRƯỜNG THPT GIA LỘC II</div>
+            <div class="font-mono-code text-[11px] text-slate-500">GÓC HỌC TẬP SỐ & THÔNG BÁO NỘI BỘ • TOÁN - LÝ - HÓA</div>
+        </div>
+    </footer>
+
+    <!-- MODAL CHI TIẾT -->
+    <div id="category-modal" class="hidden fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-cyan-500/40 rounded-2xl max-w-3xl w-full max-h-[85vh] flex flex-col shadow-[0_0_40px_rgba(0,229,255,0.2)] overflow-hidden">
+            <div class="px-6 py-4 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div id="modal-cat-icon" class="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-300 flex items-center justify-center">
+                        <i class="fa-solid fa-folder-open"></i>
+                    </div>
+                    <div>
+                        <h3 id="modal-cat-title" class="font-tech text-xl font-bold text-white uppercase tracking-wide">Tiêu đề</h3>
+                        <p id="modal-cat-subtitle" class="text-xs text-slate-400">Mô tả</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('category-modal')" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-rose-500/20 text-slate-300 hover:text-rose-400 flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="modal-cat-body" class="p-6 overflow-y-auto space-y-4"></div>
+        </div>
+    </div>
+
+    <!-- MODAL ĐĂNG THÔNG BÁO NHANH -->
+    <div id="quick-post-modal" class="hidden fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-cyan-500/40 rounded-2xl max-w-lg w-full p-6 shadow-[0_0_35px_rgba(0,229,255,0.2)]">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
+                <h3 class="font-tech text-xl font-bold text-white uppercase flex items-center gap-2">
+                    <i class="fa-solid fa-bullhorn text-cyan-400"></i> Đăng Thông Báo Lên Bảng Tin
+                </h3>
+                <button onclick="closeModal('quick-post-modal')" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <form onsubmit="handleQuickPostSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">Nội dung thông báo chính *</label>
+                    <input type="text" id="qp-title" required placeholder="VD: Sáng mai kiểm tra 15 phút môn Hóa cô Hợp..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 focus:border-cyan-400 text-sm text-white outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">Ghi chú / Comment (hiển thị trong ngoặc đơn)</label>
+                    <input type="text" id="qp-comment" placeholder="VD: Các bạn ôn kỹ chương Este - Lipit nhé" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 focus:border-cyan-400 text-sm text-white outline-none">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Phân loại</label>
+                        <select id="qp-tag" class="w-full px-3 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                            <option value="HỌC TẬP">HỌC TẬP</option>
+                            <option value="KIỂM TRA">KIỂM TRA</option>
+                            <option value="QUAN TRỌNG">QUAN TRỌNG</option>
+                            <option value="NHẮC NHỞ">NHẮC NHỞ</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Người đăng</label>
+                        <input type="text" id="qp-author" value="Thành viên 12A" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                    </div>
+                </div>
+                <div class="pt-2 flex justify-end gap-2.5">
+                    <button type="button" onclick="closeModal('quick-post-modal')" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold">Hủy</button>
+                    <button type="submit" class="px-5 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs shadow-[0_0_15px_rgba(0,229,255,0.3)]">
+                        Đăng ngay lên bảng tin
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL ĐĂNG HÌNH ẢNH -->
+    <div id="image-upload-modal" class="hidden fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-orange-500/40 rounded-2xl max-w-lg w-full p-6 shadow-[0_0_35px_rgba(255,138,0,0.2)]">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
+                <h3 class="font-tech text-xl font-bold text-white uppercase flex items-center gap-2">
+                    <i class="fa-solid fa-image text-orange-400"></i> Thêm Hình Ảnh Vào Cuối Trang
+                </h3>
+                <button onclick="closeModal('image-upload-modal')" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <form onsubmit="handleUserImageSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">Chọn tệp ảnh từ thiết bị</label>
+                    <input type="file" id="img-file-input" accept="image/*" onchange="previewSelectedFile(event)" class="w-full text-xs text-slate-300 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-orange-500/20 file:text-orange-300 hover:file:bg-orange-500/30 bg-slate-950 border border-slate-700 rounded-xl p-1.5">
+                </div>
+                <div class="text-center text-[11px] font-mono-code text-slate-500">— HOẶC —</div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">Dán đường dẫn (URL) hình ảnh</label>
+                    <input type="url" id="img-url-input" placeholder="https://..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 focus:border-orange-400 text-sm text-white outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">Chú thích hình ảnh</label>
+                    <input type="text" id="img-caption-input" placeholder="VD: Giờ ôn luyện đội tuyển Toán - Lý - Hóa 12A" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 focus:border-orange-400 text-sm text-white outline-none">
+                </div>
+                <div id="img-preview-box" class="hidden rounded-xl overflow-hidden border border-slate-700 max-h-44 bg-slate-950 flex items-center justify-center">
+                    <img id="img-preview-el" src="" alt="Xem trước" class="max-h-44 object-contain">
+                </div>
+                <div class="pt-2 flex justify-end gap-2.5">
+                    <button type="button" onclick="closeModal('image-upload-modal')" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold">Hủy</button>
+                    <button type="submit" class="px-5 py-2 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-bold text-xs">
+                        Lưu hình ảnh lên trang
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL ĐĂNG NHẬP ADMIN (KHÔNG CÓ GỢI Ý MẬT KHẨU) -->
+    <div id="admin-login-modal" class="hidden fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-orange-500/40 rounded-2xl max-w-md w-full p-6 shadow-[0_0_40px_rgba(255,138,0,0.2)]">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <h3 class="font-tech text-xl font-bold text-white uppercase">Đăng Nhập Quản Trị</h3>
+                </div>
+                <button onclick="closeModal('admin-login-modal')" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                <input type="password" id="admin-password-input" required placeholder="Nhập mật khẩu..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 focus:border-orange-400 text-sm text-white outline-none font-mono-code">
+                <div id="admin-login-error" class="hidden text-xs text-rose-400 font-medium">
+                    Mật khẩu không chính xác.
+                </div>
+                <div class="flex justify-end gap-2">
+                    <button type="button" onclick="closeModal('admin-login-modal')" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold">Đóng</button>
+                    <button type="submit" class="px-5 py-2 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-bold text-xs">
+                        Mở Quản Trị
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox-modal" onclick="closeModal('lightbox-modal')" class="hidden fixed inset-0 z-50 bg-slate-950/92 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="max-w-4xl w-full flex flex-col items-center" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Phóng to" class="max-h-[78vh] rounded-2xl border border-cyan-500/40 shadow-2xl object-contain">
+            <div class="mt-3 flex items-center justify-between w-full max-w-2xl bg-slate-900/90 border border-slate-700 px-4 py-2.5 rounded-xl">
+                <p id="lightbox-caption" class="text-sm text-slate-200"></p>
+                <button onclick="closeModal('lightbox-modal')" class="px-3 py-1 rounded-lg bg-slate-800 text-xs text-slate-300 hover:text-white">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <script>
+        const ADMIN_PASSWORD = '1321345589VHien';
+        const STORAGE_KEY = 'thpt_gialoc2_12a_2k9_portal_v3';
+        const syncChannel = ('BroadcastChannel' in window) ? new BroadcastChannel('12a_2k9_sync_channel') : null;
+
+        const DEFAULT_DATA = {
+            announcements: [
+                {
+                    id: 'ann-1',
+                    tag: 'QUAN TRỌNG',
+                    title: 'Lịch ôn thi tốt nghiệp THPT tổ hợp Toán - Lý - Hóa tuần này bắt đầu từ 14h00 chiều thứ Hai',
+                    comment: 'Cô Nguyễn Thị Anh nhắc cả lớp mang đầy đủ đề cương chuyên đề Hàm số',
+                    date: 'Hôm nay',
+                    author: 'GVCN Nguyễn Thị Anh'
+                },
+                {
+                    id: 'ann-2',
+                    tag: 'KIỂM TRA',
+                    title: 'Kiểm tra đánh giá thường xuyên môn Vật Lý — Chuyên đề Dao động cơ & Sóng cơ',
+                    comment: 'Cô Nguyễn Thị Thuý dặn chuẩn bị máy tính cầm tay và bảng công thức',
+                    date: 'Tuần này',
+                    author: 'Cô Nguyễn Thị Thuý'
+                },
+                {
+                    id: 'ann-3',
+                    tag: 'HỌC TẬP',
+                    title: 'Hoàn thành phiếu bài tập Hóa Hữu Cơ trước 21h00 tối thứ Năm',
+                    comment: 'Cô Viết Thị Hợp sẽ chữa chi tiết các câu vận dụng cao trên lớp',
+                    date: 'Mới cập nhật',
+                    author: 'Cô Viết Thị Hợp'
+                }
+            ],
+            documents: [
+                {
+                    id: 'doc-1',
+                    subject: 'Toán Học',
+                    title: 'Chuyên đề Ứng dụng Đạo hàm khảo sát hàm số - Lớp 12A',
+                    desc: 'Tổng hợp 50 bài toán vận dụng cao có lời giải chi tiết (Cô Nguyễn Thị Anh).',
+                    link: '#'
+                },
+                {
+                    id: 'doc-2',
+                    subject: 'Vật Lý',
+                    title: 'Sổ tay công thức giải nhanh Vật Lý 12 - Chương 1 & 2',
+                    desc: 'Hệ thống công thức trọng tâm và phương pháp giải trắc nghiệm (Cô Nguyễn Thị Thuý).',
+                    link: '#'
+                },
+                {
+                    id: 'doc-3',
+                    subject: 'Hóa Học',
+                    title: 'Chuyên đề Este - Lipit & Bài toán thủy phân chất béo',
+                    desc: 'Phân dạng bài tập từ cơ bản đến nâng cao ôn thi THPT (Cô Viết Thị Hợp).',
+                    link: '#'
+                }
+            ],
+            quizzes: [
+                {
+                    id: 'quiz-1',
+                    subject: 'Toán Học',
+                    title: 'Quiz 15 phút: Tính đơn điệu và Cực trị của hàm số',
+                    questionsCount: '15 câu hỏi trắc nghiệm',
+                    duration: '15 phút',
+                    link: '#'
+                },
+                {
+                    id: 'quiz-2',
+                    subject: 'Hóa Học',
+                    title: 'Luyện phản xạ nhanh chuỗi phản ứng Este - Cacbohidrat',
+                    questionsCount: '20 câu hỏi trắc nghiệm',
+                    duration: '20 phút',
+                    link: '#'
+                }
+            ],
+            assignments: [
+                {
+                    id: 'ass-1',
+                    subject: 'Vật Lý',
+                    title: 'Phiếu bài tập số 04: Giao thoa sóng cơ và Sóng dừng',
+                    deadline: '21:00 Thứ Sáu tuần này',
+                    note: 'Trình bày tóm tắt ra vở bài tập và đối chiếu đáp án trên hệ thống.'
+                },
+                {
+                    id: 'ass-2',
+                    subject: 'Toán Học',
+                    title: 'Đề luyện tập tổng hợp số 02 - Cấu trúc đề mới 2k9',
+                    deadline: 'Chủ nhật hàng tuần',
+                    note: 'Bao gồm trắc nghiệm nhiều lựa chọn, đúng/sai và trả lời ngắn.'
+                }
+            ],
+            videos: [],
+            images: []
+        };
+
+        let appData = loadData();
+        let currentSlideIndex = 0;
+        let tickerInterval = null;
+        let isTickerPaused = false;
+        let isAdminAuthenticated = sessionStorage.getItem('12a_admin_auth') === 'true';
+        let currentAdminTab = 'announcements';
+        let editingItemId = null;
+        let pendingBase64Image = '';
+
+        function loadData() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    return {
+                        announcements: Array.isArray(parsed.announcements) ? parsed.announcements : DEFAULT_DATA.announcements,
+                        documents: Array.isArray(parsed.documents) ? parsed.documents : DEFAULT_DATA.documents,
+                        quizzes: Array.isArray(parsed.quizzes) ? parsed.quizzes : DEFAULT_DATA.quizzes,
+                        assignments: Array.isArray(parsed.assignments) ? parsed.assignments : DEFAULT_DATA.assignments,
+                        videos: Array.isArray(parsed.videos) ? parsed.videos : [],
+                        images: Array.isArray(parsed.images) ? parsed.images : []
+                    };
+                }
+            } catch (e) {
+                console.error('Lỗi đọc dữ liệu:', e);
+            }
+            return JSON.parse(JSON.stringify(DEFAULT_DATA));
+        }
+
+        function saveData(broadcast = true) {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+                renderAll();
+                if (broadcast && syncChannel) {
+                    syncChannel.postMessage({ type: 'SYNC_DATA', payload: appData });
+                }
+            } catch (e) {
+                showToast('Bộ nhớ trình duyệt đầy, vui lòng chọn ảnh dung lượng nhẹ hơn!', 'error');
+            }
+        }
+
+        if (syncChannel) {
+            syncChannel.onmessage = (event) => {
+                if (event.data && event.data.type === 'SYNC_DATA') {
+                    appData = event.data.payload;
+                    renderAll();
+                }
+            };
+        }
+
+        window.addEventListener('storage', (e) => {
+            if (e.key === STORAGE_KEY && e.newValue) {
+                appData = JSON.parse(e.newValue);
+                renderAll();
+            }
+        });
+
+        function renderAll() {
+            renderTicker();
+            updateCardCounts();
+            renderGallery();
+            if (!document.getElementById('view-admin').classList.contains('hidden')) {
+                renderAdminWorkspace();
+            }
+        }
+
+        function updateCardCounts() {
+            document.getElementById('count-documents').textContent = `${appData.documents.length} tài liệu`;
+            document.getElementById('count-videos').textContent = `${appData.videos.length} video`;
+            document.getElementById('count-quizzes').textContent = `${appData.quizzes.length} bộ đề`;
+            document.getElementById('count-assignments').textContent = `${appData.assignments.length} bài tập`;
+            document.getElementById('count-announcements').textContent = `${appData.announcements.length} thông báo`;
+        }
+
+        function renderTicker() {
+            const track = document.getElementById('ticker-track');
+            const list = appData.announcements;
+
+            if (!list || list.length === 0) {
+                track.innerHTML = `
+                    <div class="ticker-slide">
+                        <p class="text-sm text-slate-400 italic">Chưa có thông báo nào. Bấm "+ Đăng thông báo" để thêm tin mới.</p>
+                    </div>
+                `;
+                document.getElementById('ticker-counter').textContent = '0 / 0';
+                return;
+            }
+
+            if (currentSlideIndex >= list.length) currentSlideIndex = 0;
+
+            track.innerHTML = list.map((item) => {
+                const commentHtml = item.comment && item.comment.trim() !== ''
+                    ? `<span class="text-cyan-300 font-normal ml-1.5">(${escapeHtml(item.comment.trim())})</span>`
+                    : '';
+
+                return `
+                    <div class="ticker-slide">
+                        <div class="flex items-center gap-2 text-[11px] font-mono-code text-slate-400 mb-1">
+                            <span class="px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-bold">${escapeHtml(item.tag || 'THÔNG BÁO')}</span>
+                            <span>• ${escapeHtml(item.author || 'Lớp 12A')}</span>
+                            <span>• ${escapeHtml(item.date || 'Mới')}</span>
+                        </div>
+                        <p class="text-sm sm:text-base font-semibold text-white truncate">
+                            ${escapeHtml(item.title)}${commentHtml}
+                        </p>
+                    </div>
+                `;
+            }).join('');
+
+            updateSlidePosition(false);
+        }
+
+        function updateSlidePosition(animate = true) {
+            const track = document.getElementById('ticker-track');
+            const list = appData.announcements;
+            if (!list || list.length === 0) return;
+
+            track.style.transition = animate ? 'transform 0.55s cubic-bezier(0.22, 1, 0.36, 1)' : 'none';
+            track.style.transform = `translateY(-${currentSlideIndex * 76}px)`;
+            document.getElementById('ticker-counter').textContent = `${currentSlideIndex + 1} / ${list.length}`;
+
+            const bar = document.getElementById('ticker-progress');
+            bar.style.animation = 'none';
+            void bar.offsetWidth;
+            bar.style.animation = 'progress2s 2s linear infinite';
+            if (isTickerPaused) bar.style.animationPlayState = 'paused';
+        }
+
+        function nextSlide() {
+            const list = appData.announcements;
+            if (!list || list.length <= 1) return;
+            currentSlideIndex = (currentSlideIndex + 1) % list.length;
+            updateSlidePosition(true);
+        }
+
+        function prevSlide() {
+            const list = appData.announcements;
+            if (!list || list.length <= 1) return;
+            currentSlideIndex = (currentSlideIndex - 1 + list.length) % list.length;
+            updateSlidePosition(true);
+        }
+
+        function startTickerLoop() {
+            if (tickerInterval) clearInterval(tickerInterval);
+            tickerInterval = setInterval(() => {
+                if (!isTickerPaused && appData.announcements.length > 1) {
+                    nextSlide();
+                }
+            }, 2000);
+        }
+
+        function pauseTicker() {
+            isTickerPaused = true;
+            document.getElementById('ticker-container').classList.add('ticker-paused');
+        }
+
+        function resumeTicker() {
+            isTickerPaused = false;
+            document.getElementById('ticker-container').classList.remove('ticker-paused');
+        }
+
+        function renderGallery() {
+            const container = document.getElementById('gallery-container');
+            const images = appData.images || [];
+
+            if (images.length === 0) {
+                container.innerHTML = `
+                    <div onclick="openImageUploadModal()" class="empty-gallery-zone rounded-2xl p-8 sm:p-10 text-center cursor-pointer group">
+                        <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-cyan-500/10 border border-cyan-400/35 flex items-center justify-center text-cyan-300 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-cloud-arrow-up text-2xl"></i>
+                        </div>
+                        <h4 class="font-tech text-lg font-bold text-white uppercase tracking-wide mb-1">
+                            Chưa có hình ảnh nào được đăng
+                        </h4>
+                        <p class="text-xs sm:text-sm text-slate-400 max-w-md mx-auto mb-4">
+                            Khu vực này đang để trống để bạn tự tải lên hình ảnh bảng tin, sơ đồ lớp hoặc khoảnh khắc của tập thể 12A - 2k9.
+                        </p>
+                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/20 border border-cyan-400/50 text-cyan-300 text-xs font-bold group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
+                            <i class="fa-solid fa-plus"></i> Đăng hình ảnh đầu tiên
+                        </span>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    ${images.map((img) => `
+                        <div class="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-700/80 hover:border-cyan-400/60 transition shadow-lg">
+                            <div class="aspect-video bg-slate-950 overflow-hidden cursor-pointer" onclick="openLightbox('${img.id}')">
+                                <img src="${escapeHtml(img.url)}" alt="${escapeHtml(img.caption || 'Ảnh lớp 12A')}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            </div>
+                            <div class="p-3 flex items-center justify-between gap-2 bg-slate-900/95">
+                                <p class="text-xs text-slate-200 truncate font-medium">${escapeHtml(img.caption || 'Hình ảnh lớp 12A - 2k9')}</p>
+                                <button onclick="deleteGalleryImage('${img.id}')" title="Xóa ảnh" class="w-7 h-7 rounded-lg bg-slate-800 hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 flex items-center justify-center text-xs shrink-0 transition">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function openImageUploadModal() {
+            pendingBase64Image = '';
+            document.getElementById('img-file-input').value = '';
+            document.getElementById('img-url-input').value = '';
+            document.getElementById('img-caption-input').value = '';
+            document.getElementById('img-preview-box').classList.add('hidden');
+            openModal('image-upload-modal');
+        }
+
+        function previewSelectedFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                pendingBase64Image = e.target.result;
+                const previewImg = document.getElementById('img-preview-el');
+                previewImg.src = pendingBase64Image;
+                document.getElementById('img-preview-box').classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function handleUserImageSubmit(event) {
+            event.preventDefault();
+            const urlInput = document.getElementById('img-url-input').value.trim();
+            const caption = document.getElementById('img-caption-input').value.trim() || 'Khoảnh khắc lớp 12A - 2k9';
+            const finalSrc = pendingBase64Image || urlInput;
+
+            if (!finalSrc) {
+                showToast('Vui lòng chọn tệp ảnh từ máy hoặc nhập đường dẫn URL!', 'error');
+                return;
+            }
+
+            appData.images.unshift({
+                id: 'img-' + Date.now(),
+                url: finalSrc,
+                caption: caption
+            });
+
+            saveData();
+            closeModal('image-upload-modal');
+            showToast('Đã đăng hình ảnh lên cuối trang thành công!', 'success');
+        }
+
+        function deleteGalleryImage(id) {
+            appData.images = appData.images.filter(img => img.id !== id);
+            saveData();
+            showToast('Đã xóa hình ảnh khỏi trang', 'info');
+        }
+
+        function openLightbox(id) {
+            const img = appData.images.find(i => i.id === id);
+            if (!img) return;
+            document.getElementById('lightbox-img').src = img.url;
+            document.getElementById('lightbox-caption').textContent = img.caption || 'Hình ảnh lớp 12A - 2k9';
+            openModal('lightbox-modal');
+        }
+
+        function openQuickPostModal() {
+            document.getElementById('qp-title').value = '';
+            document.getElementById('qp-comment').value = '';
+            openModal('quick-post-modal');
+        }
+
+        function handleQuickPostSubmit(event) {
+            event.preventDefault();
+            const title = document.getElementById('qp-title').value.trim();
+            const comment = document.getElementById('qp-comment').value.trim();
+            const tag = document.getElementById('qp-tag').value;
+            const author = document.getElementById('qp-author').value.trim() || 'Thành viên 12A';
+
+            if (!title) return;
+
+            appData.announcements.unshift({
+                id: 'ann-' + Date.now(),
+                tag,
+                title,
+                comment,
+                date: 'Vừa xong',
+                author
+            });
+
+            currentSlideIndex = 0;
+            saveData();
+            closeModal('quick-post-modal');
+            showToast('Đã đăng thông báo mới lên bảng tin!', 'success');
+        }
+
+        function openCategoryModal(category) {
+            const titleEl = document.getElementById('modal-cat-title');
+            const subEl = document.getElementById('modal-cat-subtitle');
+            const iconEl = document.getElementById('modal-cat-icon');
+            const bodyEl = document.getElementById('modal-cat-body');
+
+            if (category === 'documents') {
+                titleEl.textContent = 'THƯ VIỆN TÀI LIỆU 12A';
+                subEl.textContent = 'Tài liệu ôn tập chuyên sâu Toán - Lý - Hóa';
+                iconEl.innerHTML = '<i class="fa-solid fa-book-open-reader"></i>';
+                bodyEl.innerHTML = appData.documents.length === 0
+                    ? '<p class="text-sm text-slate-400 text-center py-6">Chưa có tài liệu nào.</p>'
+                    : appData.documents.map(doc => `
+                        <div class="p-4 rounded-xl bg-slate-950/90 border border-cyan-500/25 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div>
+                                <span class="px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 font-mono-code text-[11px] font-bold">${escapeHtml(doc.subject)}</span>
+                                <h4 class="font-bold text-white text-sm sm:text-base mt-1.5">${escapeHtml(doc.title)}</h4>
+                                <p class="text-xs text-slate-400 mt-1">${escapeHtml(doc.desc || '')}</p>
+                            </div>
+                            ${doc.link && doc.link !== '#' ? `<a href="${escapeHtml(doc.link)}" target="_blank" class="px-3.5 py-2 rounded-xl bg-cyan-500/20 hover:bg-cyan-500 text-cyan-300 hover:text-slate-950 text-xs font-bold shrink-0 transition text-center">Mở tài liệu <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>` : '<span class="text-xs font-mono-code text-slate-500 shrink-0">Tài liệu nội bộ</span>'}
+                        </div>
+                    `).join('');
+            } else if (category === 'videos') {
+                titleEl.textContent = 'VIDEO BÀI GIẢNG YOUTUBE';
+                subEl.textContent = 'Danh sách video bài giảng do lớp 12A tự đăng tải';
+                iconEl.innerHTML = '<i class="fa-solid fa-video text-orange-400"></i>';
+                bodyEl.innerHTML = appData.videos.length === 0
+                    ? `
+                        <div class="py-10 px-4 text-center rounded-2xl border border-dashed border-orange-500/35 bg-orange-950/10">
+                            <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-orange-500/15 border border-orange-400/35 flex items-center justify-center text-orange-400">
+                                <i class="fa-brands fa-youtube text-2xl"></i>
+                            </div>
+                            <h4 class="font-tech text-lg font-bold text-white uppercase mb-1">Chưa có video bài giảng nào được đăng</h4>
+                            <p class="text-xs sm:text-sm text-slate-400 max-w-md mx-auto mb-5">
+                                Bạn có thể tự dán link YouTube bài giảng Toán - Lý - Hóa bất cứ lúc nào.
+                            </p>
+                            <button onclick="openQuickAddVideoFromModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 text-slate-950 font-bold text-xs shadow-[0_0_16px_rgba(255,138,0,0.3)] transition">
+                                <i class="fa-solid fa-plus"></i> Đăng link video YouTube ngay
+                            </button>
+                        </div>
+                    `
+                    : `
+                        <div class="flex justify-end mb-2">
+                            <button onclick="openQuickAddVideoFromModal()" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-orange-500/20 hover:bg-orange-500 text-orange-300 hover:text-slate-950 border border-orange-400/40 text-xs font-bold transition">
+                                <i class="fa-solid fa-plus"></i> Thêm link YouTube
+                            </button>
+                        </div>
+                        ${appData.videos.map(vid => {
+                            const embedUrl = getYouTubeEmbedUrl(vid.youtubeUrl);
+                            return `
+                                <div class="p-4 rounded-xl bg-slate-950/90 border border-orange-500/25 space-y-3">
+                                    <div class="flex items-center justify-between">
+                                        <span class="px-2 py-0.5 rounded bg-orange-500/15 text-orange-300 font-mono-code text-[11px] font-bold">${escapeHtml(vid.subject)}</span>
+                                        <a href="${escapeHtml(vid.youtubeUrl)}" target="_blank" class="text-xs text-orange-300 hover:underline">Mở trên YouTube <i class="fa-solid fa-external-link ml-1"></i></a>
+                                    </div>
+                                    <h4 class="font-bold text-white text-sm sm:text-base">${escapeHtml(vid.title)}</h4>
+                                    ${embedUrl ? `<div class="aspect-video rounded-xl overflow-hidden border border-slate-800"><iframe src="${embedUrl}" class="w-full h-full" frameborder="0" allowfullscreen></iframe></div>` : ''}
+                                </div>
+                            `;
+                        }).join('')}
+                    `;
+            } else if (category === 'quizzes') {
+                titleEl.textContent = 'QUIZ KIỂM TRA KIẾN THỨC';
+                subEl.textContent = 'Bộ đề trắc nghiệm rèn luyện tốc độ';
+                iconEl.innerHTML = '<i class="fa-solid fa-brain text-rose-400"></i>';
+                bodyEl.innerHTML = appData.quizzes.length === 0
+                    ? '<p class="text-sm text-slate-400 text-center py-6">Chưa có bộ đề Quiz nào.</p>'
+                    : appData.quizzes.map(q => `
+                        <div class="p-4 rounded-xl bg-slate-950/90 border border-rose-500/25 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="px-2 py-0.5 rounded bg-rose-500/15 text-rose-300 font-mono-code text-[11px] font-bold">${escapeHtml(q.subject)}</span>
+                                    <span class="text-xs text-slate-400 font-mono-code"><i class="fa-regular fa-clock mr-1"></i>${escapeHtml(q.duration || '15 phút')}</span>
+                                </div>
+                                <h4 class="font-bold text-white text-sm sm:text-base mt-1.5">${escapeHtml(q.title)}</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">${escapeHtml(q.questionsCount || '')}</p>
+                            </div>
+                            ${q.link && q.link !== '#' ? `<a href="${escapeHtml(q.link)}" target="_blank" class="px-3.5 py-2 rounded-xl bg-rose-500/20 hover:bg-rose-500 text-rose-300 hover:text-slate-950 text-xs font-bold shrink-0 transition text-center">Bắt đầu làm <i class="fa-solid fa-play ml-1"></i></a>` : '<span class="text-xs font-mono-code text-rose-300/80 shrink-0">Đề luyện trên lớp</span>'}
+                        </div>
+                    `).join('');
+            } else if (category === 'assignments') {
+                titleEl.textContent = 'BÀI TẬP TRỰC TUYẾN';
+                subEl.textContent = 'Phiếu bài tập về nhà và hạn hoàn thành';
+                iconEl.innerHTML = '<i class="fa-solid fa-laptop-code text-purple-400"></i>';
+                bodyEl.innerHTML = appData.assignments.length === 0
+                    ? '<p class="text-sm text-slate-400 text-center py-6">Hiện chưa có bài tập mới.</p>'
+                    : appData.assignments.map(a => `
+                        <div class="p-4 rounded-xl bg-slate-950/90 border border-purple-500/25">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                                <span class="px-2 py-0.5 rounded bg-purple-500/15 text-purple-300 font-mono-code text-[11px] font-bold">${escapeHtml(a.subject)}</span>
+                                <span class="text-xs text-amber-300 font-mono-code"><i class="fa-regular fa-calendar-check mr-1"></i>Hạn: ${escapeHtml(a.deadline)}</span>
+                            </div>
+                            <h4 class="font-bold text-white text-sm sm:text-base">${escapeHtml(a.title)}</h4>
+                            <p class="text-xs text-slate-400 mt-1">${escapeHtml(a.note || '')}</p>
+                        </div>
+                    `).join('');
+            } else if (category === 'announcements') {
+                titleEl.textContent = 'TẤT CẢ THÔNG BÁO LỚP 12A';
+                subEl.textContent = 'Danh sách thông báo đầy đủ kèm ghi chú';
+                iconEl.innerHTML = '<i class="fa-solid fa-tower-broadcast text-emerald-400"></i>';
+                bodyEl.innerHTML = appData.announcements.length === 0
+                    ? '<p class="text-sm text-slate-400 text-center py-6">Chưa có thông báo nào.</p>'
+                    : appData.announcements.map(ann => `
+                        <div class="p-4 rounded-xl bg-slate-950/90 border border-emerald-500/25">
+                            <div class="flex items-center justify-between text-[11px] font-mono-code text-slate-400 mb-1.5">
+                                <span class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 font-bold">${escapeHtml(ann.tag || 'THÔNG BÁO')}</span>
+                                <span>${escapeHtml(ann.author)} • ${escapeHtml(ann.date)}</span>
+                            </div>
+                            <h4 class="font-bold text-white text-sm sm:text-base">
+                                ${escapeHtml(ann.title)}
+                                ${ann.comment ? `<span class="text-cyan-300 font-normal ml-1">(${escapeHtml(ann.comment)})</span>` : ''}
+                            </h4>
+                        </div>
+                    `).join('');
+            }
+
+            openModal('category-modal');
+        }
+
+        function openQuickAddVideoFromModal() {
+            closeModal('category-modal');
+            currentAdminTab = 'videos';
+            if (isAdminAuthenticated) {
+                switchView('admin');
+                switchAdminTab('videos');
+            } else {
+                openAdminAccess();
+            }
+        }
+
+        function openAdminAccess() {
+            if (isAdminAuthenticated) {
+                switchView('admin');
+            } else {
+                document.getElementById('admin-password-input').value = '';
+                document.getElementById('admin-login-error').classList.add('hidden');
+                openModal('admin-login-modal');
+                setTimeout(() => document.getElementById('admin-password-input').focus(), 100);
+            }
+        }
+
+        function handleAdminLogin(event) {
+            event.preventDefault();
+            const pw = document.getElementById('admin-password-input').value;
+            if (pw === ADMIN_PASSWORD) {
+                isAdminAuthenticated = true;
+                sessionStorage.setItem('12a_admin_auth', 'true');
+                closeModal('admin-login-modal');
+                switchView('admin');
+                switchAdminTab(currentAdminTab);
+                showToast('Đã mở quyền quản trị!', 'success');
+            } else {
+                document.getElementById('admin-login-error').classList.remove('hidden');
+            }
+        }
+
+        function logoutAdmin() {
+            isAdminAuthenticated = false;
+            sessionStorage.removeItem('12a_admin_auth');
+            switchView('home');
+            showToast('Đã khóa phiên quản trị', 'info');
+        }
+
+        function switchView(view) {
+            const homeEl = document.getElementById('view-home');
+            const adminEl = document.getElementById('view-admin');
+            const btnHome = document.getElementById('nav-btn-home');
+            const btnAdmin = document.getElementById('nav-btn-admin');
+
+            if (view === 'admin') {
+                homeEl.classList.add('hidden');
+                adminEl.classList.remove('hidden');
+                btnAdmin.className = 'px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-2 bg-orange-500/20 text-orange-300 border border-orange-400/50 shadow-[0_0_12px_rgba(255,138,0,0.25)]';
+                btnHome.className = 'px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-2 bg-slate-900/90 text-slate-300 border border-slate-700 hover:border-cyan-400/60 hover:text-cyan-300';
+                renderAdminWorkspace();
+            } else {
+                adminEl.classList.add('hidden');
+                homeEl.classList.remove('hidden');
+                btnHome.className = 'px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-2 bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_12px_rgba(0,229,255,0.2)]';
+                btnAdmin.className = 'px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-2 bg-slate-900/90 text-slate-300 border border-slate-700 hover:border-orange-400/60 hover:text-orange-300';
+                renderAll();
+            }
+        }
+
+        function switchAdminTab(tab) {
+            currentAdminTab = tab;
+            editingItemId = null;
+
+            document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+                btn.className = 'admin-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition';
+            });
+            const activeBtn = document.getElementById(`admin-tab-${tab}`);
+            if (activeBtn) {
+                activeBtn.className = 'admin-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-orange-500/20 text-orange-300 border border-orange-400/50 transition';
+            }
+
+            renderAdminWorkspace();
+        }
+
+        function renderAdminWorkspace() {
+            const formContainer = document.getElementById('admin-form-container');
+            const listTitle = document.getElementById('admin-list-title');
+            const listCount = document.getElementById('admin-list-count');
+            const listContainer = document.getElementById('admin-items-list');
+
+            const tabNames = {
+                announcements: 'Bảng Tin & Thông Báo',
+                documents: 'Thư Viện Tài Liệu',
+                quizzes: 'Quiz Kiểm Tra Kiến Thức',
+                assignments: 'Bài Tập Trực Tuyến',
+                videos: 'Video Bài Giảng YouTube',
+                images: 'Hình Ảnh Dưới Đáy Trang'
+            };
+
+            const items = appData[currentAdminTab] || [];
+            listTitle.textContent = tabNames[currentAdminTab];
+            listCount.textContent = `${items.length} mục`;
+
+            const editingItem = editingItemId ? items.find(i => i.id === editingItemId) : null;
+            formContainer.innerHTML = buildAdminFormHTML(currentAdminTab, editingItem);
+
+            if (items.length === 0) {
+                listContainer.innerHTML = `<p class="text-xs text-slate-400 text-center py-8">Chưa có dữ liệu trong mục này.</p>`;
+                return;
+            }
+
+            listContainer.innerHTML = items.map(item => `
+                <div class="p-3.5 rounded-xl bg-slate-950/90 border border-slate-800 hover:border-slate-700 flex items-start justify-between gap-3">
+                    <div class="min-w-0 flex-1">
+                        <div class="flex items-center gap-2 text-[11px] font-mono-code text-cyan-400 mb-1">
+                            <span>${escapeHtml(item.tag || item.subject || '12A-2K9')}</span>
+                            ${item.deadline ? `<span class="text-amber-400">• Hạn: ${escapeHtml(item.deadline)}</span>` : ''}
+                        </div>
+                        <h4 class="text-sm font-bold text-white truncate">${escapeHtml(item.title || item.caption || 'Hình ảnh')}</h4>
+                        ${item.comment ? `<p class="text-xs text-cyan-300 mt-0.5">(${escapeHtml(item.comment)})</p>` : ''}
+                        ${item.desc || item.note ? `<p class="text-xs text-slate-400 mt-0.5 line-clamp-2">${escapeHtml(item.desc || item.note)}</p>` : ''}
+                        ${item.url && currentAdminTab === 'images' ? `<img src="${escapeHtml(item.url)}" class="h-14 rounded-lg mt-2 border border-slate-800 object-cover">` : ''}
+                    </div>
+                    <div class="flex items-center gap-1.5 shrink-0">
+                        ${currentAdminTab !== 'images' ? `
+                            <button onclick="startEditAdminItem('${item.id}')" title="Sửa" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-cyan-500/20 text-slate-300 hover:text-cyan-300 flex items-center justify-center text-xs transition">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                        ` : ''}
+                        <button onclick="deleteAdminItem('${item.id}')" title="Xóa" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-rose-500/20 text-slate-300 hover:text-rose-400 flex items-center justify-center text-xs transition">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function buildAdminFormHTML(tab, item) {
+            const isEdit = Boolean(item);
+            const heading = isEdit ? 'Chỉnh Sửa Nội Dung' : 'Thêm Nội Dung Mới';
+            const btnText = isEdit ? 'Cập Nhật Thay Đổi' : 'Thêm Vào Hệ Thống';
+
+            if (tab === 'announcements') {
+                return `
+                    <h3 class="font-tech text-lg font-bold text-white uppercase mb-4">${heading}</h3>
+                    <form onsubmit="saveAdminForm(event)" class="space-y-3.5">
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Tiêu đề thông báo *</label>
+                            <input type="text" id="af-title" required value="${escapeHtml(item?.title || '')}" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Comment / Ghi chú (hiển thị trong ngoặc đơn)</label>
+                            <input type="text" id="af-comment" value="${escapeHtml(item?.comment || '')}" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                        </div>
+                        <div class="grid grid-cols-2 gap-2.5">
+                            <div>
+                                <label class="block text-xs text-slate-300 mb-1">Nhãn tin</label>
+                                <select id="af-tag" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                                    <option value="QUAN TRỌNG" ${item?.tag === 'QUAN TRỌNG' ? 'selected' : ''}>QUAN TRỌNG</option>
+                                    <option value="KIỂM TRA" ${item?.tag === 'KIỂM TRA' ? 'selected' : ''}>KIỂM TRA</option>
+                                    <option value="HỌC TẬP" ${item?.tag === 'HỌC TẬP' ? 'selected' : ''}>HỌC TẬP</option>
+                                    <option value="NHẮC NHỞ" ${item?.tag === 'NHẮC NHỞ' ? 'selected' : ''}>NHẮC NHỞ</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs text-slate-300 mb-1">Người đăng</label>
+                                <input type="text" id="af-author" value="${escapeHtml(item?.author || 'GVCN Nguyễn Thị Anh')}" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                            </div>
+                        </div>
+                        <div class="pt-2 flex gap-2">
+                            ${isEdit ? `<button type="button" onclick="cancelEditAdmin()" class="px-3.5 py-2 rounded-xl bg-slate-800 text-xs text-slate-300">Hủy sửa</button>` : ''}
+                            <button type="submit" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-bold text-xs">${btnText}</button>
+                        </div>
+                    </form>
+                `;
+            }
+
+            if (tab === 'documents') {
+                return `
+                    <h3 class="font-tech text-lg font-bold text-white uppercase mb-4">${heading}</h3>
+                    <form onsubmit="saveAdminForm(event)" class="space-y-3.5">
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Bộ môn</label>
+                            <select id="af-subject" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                                <option value="Toán Học" ${item?.subject === 'Toán Học' ? 'selected' : ''}>Toán Học (Cô Nguyễn Thị Anh)</option>
+                                <option value="Vật Lý" ${item?.subject === 'Vật Lý' ? 'selected' : ''}>Vật Lý (Cô Nguyễn Thị Thuý)</option>
+                                <option value="Hóa Học" ${item?.subject === 'Hóa Học' ? 'selected' : ''}>Hóa Học (Cô Viết Thị Hợp)</option>
+                                <option value="Tổng Hợp" ${item?.subject === 'Tổng Hợp' ? 'selected' : ''}>Tổng Hợp</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Tên tài liệu *</label>
+                            <input type="text" id="af-title" required value="${escapeHtml(item?.title || '')}" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Mô tả ngắn</label>
+                            <textarea id="af-desc" rows="2" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">${escapeHtml(item?.desc || '')}</textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Link Drive / PDF (nếu có)</label>
+                            <input type="text" id="af-link" value="${escapeHtml(item?.link || '#')}" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                        </div>
+                        <div class="pt-2 flex gap-2">
+                            ${isEdit ? `<button type="button" onclick="cancelEditAdmin()" class="px-3.5 py-2 rounded-xl bg-slate-800 text-xs text-slate-300">Hủy sửa</button>` : ''}
+                            <button type="submit" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-bold text-xs">${btnText}</button>
+                        </div>
+                    </form>
+                `;
+            }
+
+            if (tab === 'quizzes') {
+                return `
+                    <h3 class="font-tech text-lg font-bold text-white uppercase mb-4">${heading}</h3>
+                    <form onsubmit="saveAdminForm(event)" class="space-y-3.5">
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Bộ môn</label>
+                            <select id="af-subject" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                                <option value="Toán Học" ${item?.subject === 'Toán Học' ? 'selected' : ''}>Toán Học</option>
+                                <option value="Vật Lý" ${item?.subject === 'Vật Lý' ? 'selected' : ''}>Vật Lý</option>
+                                <option value="Hóa Học" ${item?.subject === 'Hóa Học' ? 'selected' : ''}>Hóa Học</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Tên bài Quiz *</label>
+                            <input type="text" id="af-title" required value="${escapeHtml(item?.title || '')}" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                        </div>
+                        <div class="grid grid-cols-2 gap-2.5">
+                            <div>
+                                <label class="block text-xs text-slate-300 mb-1">Số câu hỏi</label>
+                                <input type="text" id="af-qcount" value="${escapeHtml(item?.questionsCount || '20 câu trắc nghiệm')}" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-slate-300 mb-1">Thời gian</label>
+                                <input type="text" id="af-duration" value="${escapeHtml(item?.duration || '15 phút')}" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Link làm Quiz (Azota / Google Forms)</label>
+                            <input type="text" id="af-link" value="${escapeHtml(item?.link || '#')}" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                        </div>
+                        <div class="pt-2 flex gap-2">
+                            ${isEdit ? `<button type="button" onclick="cancelEditAdmin()" class="px-3.5 py-2 rounded-xl bg-slate-800 text-xs text-slate-300">Hủy sửa</button>` : ''}
+                            <button type="submit" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-bold text-xs">${btnText}</button>
+                        </div>
+                    </form>
+                `;
+            }
+
+            if (tab === 'assignments') {
+                return `
+                    <h3 class="font-tech text-lg font-bold text-white uppercase mb-4">${heading}</h3>
+                    <form onsubmit="saveAdminForm(event)" class="space-y-3.5">
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Bộ môn</label>
+                            <select id="af-subject" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                                <option value="Toán Học" ${item?.subject === 'Toán Học' ? 'selected' : ''}>Toán Học</option>
+                                <option value="Vật Lý" ${item?.subject === 'Vật Lý' ? 'selected' : ''}>Vật Lý</option>
+                                <option value="Hóa Học" ${item?.subject === 'Hóa Học' ? 'selected' : ''}>Hóa Học</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Tên phiếu bài tập *</label>
+                            <input type="text" id="af-title" required value="${escapeHtml(item?.title || '')}" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Hạn nộp bài *</label>
+                            <input type="text" id="af-deadline" required value="${escapeHtml(item?.deadline || '21:00 Thứ Sáu')}" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Ghi chú yêu cầu</label>
+                            <textarea id="af-note" rows="2" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">${escapeHtml(item?.note || '')}</textarea>
+                        </div>
+                        <div class="pt-2 flex gap-2">
+                            ${isEdit ? `<button type="button" onclick="cancelEditAdmin()" class="px-3.5 py-2 rounded-xl bg-slate-800 text-xs text-slate-300">Hủy sửa</button>` : ''}
+                            <button type="submit" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-bold text-xs">${btnText}</button>
+                        </div>
+                    </form>
+                `;
+            }
+
+            if (tab === 'videos') {
+                return `
+                    <h3 class="font-tech text-lg font-bold text-white uppercase mb-4">${heading}</h3>
+                    <form onsubmit="saveAdminForm(event)" class="space-y-3.5">
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Bộ môn</label>
+                            <select id="af-subject" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                                <option value="Toán Học" ${item?.subject === 'Toán Học' ? 'selected' : ''}>Toán Học</option>
+                                <option value="Vật Lý" ${item?.subject === 'Vật Lý' ? 'selected' : ''}>Vật Lý</option>
+                                <option value="Hóa Học" ${item?.subject === 'Hóa Học' ? 'selected' : ''}>Hóa Học</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Tiêu đề video *</label>
+                            <input type="text" id="af-title" required value="${escapeHtml(item?.title || '')}" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-300 mb-1">Link YouTube *</label>
+                            <input type="url" id="af-yt" required placeholder="https://www.youtube.com/watch?v=..." value="${escapeHtml(item?.youtubeUrl || '')}" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white outline-none">
+                        </div>
+                        <div class="pt-2 flex gap-2">
+                            ${isEdit ? `<button type="button" onclick="cancelEditAdmin()" class="px-3.5 py-2 rounded-xl bg-slate-800 text-xs text-slate-300">Hủy sửa</button>` : ''}
+                            <button type="submit" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-bold text-xs">${btnText}</button>
+                        </div>
+                    </form>
+                `;
+            }
+
+            if (tab === 'images') {
+                return `
+                    <h3 class="font-tech text-lg font-bold text-white uppercase mb-4">Thêm Ảnh Vào Cuối Trang</h3>
+                    <div class="space-y-3.5">
+                        <p class="text-xs text-slate-400">Tải ảnh từ thiết bị hoặc dán URL ảnh để hiển thị ở khu vực cuối trang.</p>
+                        <button type="button" onclick="openImageUploadModal()" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cloud-arrow-up"></i> Mở Trình Tải Ảnh Lên Trang
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function saveAdminForm(event) {
+            event.preventDefault();
+            const list = appData[currentAdminTab];
+
+            if (currentAdminTab === 'announcements') {
+                const payload = {
+                    id: editingItemId || 'ann-' + Date.now(),
+                    title: document.getElementById('af-title').value.trim(),
+                    comment: document.getElementById('af-comment').value.trim(),
+                    tag: document.getElementById('af-tag').value,
+                    author: document.getElementById('af-author').value.trim() || 'Admin 12A',
+                    date: 'Đã cập nhật'
+                };
+                upsertItem(list, payload);
+            } else if (currentAdminTab === 'documents') {
+                const payload = {
+                    id: editingItemId || 'doc-' + Date.now(),
+                    subject: document.getElementById('af-subject').value,
+                    title: document.getElementById('af-title').value.trim(),
+                    desc: document.getElementById('af-desc').value.trim(),
+                    link: document.getElementById('af-link').value.trim() || '#'
+                };
+                upsertItem(list, payload);
+            } else if (currentAdminTab === 'quizzes') {
+                const payload = {
+                    id: editingItemId || 'quiz-' + Date.now(),
+                    subject: document.getElementById('af-subject').value,
+                    title: document.getElementById('af-title').value.trim(),
+                    questionsCount: document.getElementById('af-qcount').value.trim(),
+                    duration: document.getElementById('af-duration').value.trim(),
+                    link: document.getElementById('af-link').value.trim() || '#'
+                };
+                upsertItem(list, payload);
+            } else if (currentAdminTab === 'assignments') {
+                const payload = {
+                    id: editingItemId || 'ass-' + Date.now(),
+                    subject: document.getElementById('af-subject').value,
+                    title: document.getElementById('af-title').value.trim(),
+                    deadline: document.getElementById('af-deadline').value.trim(),
+                    note: document.getElementById('af-note').value.trim()
+                };
+                upsertItem(list, payload);
+            } else if (currentAdminTab === 'videos') {
+                const payload = {
+                    id: editingItemId || 'vid-' + Date.now(),
+                    subject: document.getElementById('af-subject').value,
+                    title: document.getElementById('af-title').value.trim(),
+                    youtubeUrl: document.getElementById('af-yt').value.trim()
+                };
+                upsertItem(list, payload);
+            }
+
+            editingItemId = null;
+            saveData();
+            showToast('Đã lưu thành công!', 'success');
+        }
+
+        function upsertItem(list, payload) {
+            if (editingItemId) {
+                const idx = list.findIndex(i => i.id === editingItemId);
+                if (idx !== -1) list[idx] = payload;
+            } else {
+                list.unshift(payload);
+            }
+        }
+
+        function startEditAdminItem(id) {
+            editingItemId = id;
+            renderAdminWorkspace();
+        }
+
+        function cancelEditAdmin() {
+            editingItemId = null;
+            renderAdminWorkspace();
+        }
+
+        function deleteAdminItem(id) {
+            appData[currentAdminTab] = appData[currentAdminTab].filter(i => i.id !== id);
+            if (editingItemId === id) editingItemId = null;
+            saveData();
+            showToast('Đã xóa mục', 'info');
+        }
+
+        function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+
+        function getYouTubeEmbedUrl(url) {
+            if (!url) return '';
+            const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([a-zA-Z0-9_-]{11})/);
+            return match ? `https://www.youtube.com/embed/${match[1]}` : '';
+        }
+
+        function escapeHtml(str) {
+            if (str === null || str === undefined) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            const colors = {
+                success: 'border-emerald-400/60 bg-slate-900/95 text-emerald-300',
+                error: 'border-rose-400/60 bg-slate-900/95 text-rose-300',
+                info: 'border-cyan-400/60 bg-slate-900/95 text-cyan-300'
+            };
+            toast.className = `pointer-events-auto px-4 py-3 rounded-xl border ${colors[type] || colors.info} shadow-xl text-xs font-semibold flex items-center gap-2.5 transition-all duration-300`;
+            toast.innerHTML = `<i class="fa-solid fa-circle-info"></i> <span>${escapeHtml(message)}</span>`;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(10px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderAll();
+            startTickerLoop();
+        });
+    </script>
+</body>
+</html>
